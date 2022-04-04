@@ -2,7 +2,9 @@ package org.launchcode.techjobs.console;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
+
 
 /**
  * Created by LaunchCode
@@ -110,7 +112,21 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+        if (someJobs.size() < 1) {
+            System.out.println("No matches found.");
+        }
+        else {
 
-        System.out.println("printJobs is not implemented yet");
+            for (int i = 0; i < someJobs.size(); i++) {
+                HashMap<String, String> thisJob = someJobs.get(i);
+
+                System.out.println("*****");
+
+                for (Map.Entry<String, String> thisJobDetails : thisJob.entrySet()) {
+                    System.out.println(thisJobDetails.getKey() + ": " + thisJobDetails.getValue());
+                }
+            }
+            System.out.println("*****");
+        }
     }
 }
